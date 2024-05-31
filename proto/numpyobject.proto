@@ -1,0 +1,24 @@
+syntax = "proto3";
+package data_serialize;
+
+
+message NumpyObject {
+  string header = 1;
+  repeated int64 shape = 2;
+  string dtype = 3;
+  bytes bytes = 4;
+  repeated int64 int64 = 5 [packed = true];
+  repeated float float32 = 6 [packed = true];
+  repeated double float64 = 7 [packed = true];
+}
+
+
+message NumpyObjectMap {
+  // Map from feature name to feature.
+  map<string, NumpyObject> numpyobjects = 1;
+};
+
+
+message NumpyObjectList {
+  repeated NumpyObject numpyobjects = 1;
+};
