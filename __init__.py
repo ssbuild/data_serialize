@@ -9,7 +9,11 @@ try:
 except:
     pb_ver = '3'
 
-if pb_ver.startswith('5'):
+if pb_ver.startswith('6'):
+    from .pb6.feature_pb2 import *
+    from .pb6.example_pb2 import *
+    from .pb6.numpyobject_pb2 import *
+elif pb_ver.startswith('5'):
     from .pb5.feature_pb2 import *
     from .pb5.example_pb2 import *
     from .pb5.numpyobject_pb2 import *
